@@ -44,7 +44,7 @@ const loginUser = async (req, res) => {
       savedUser.password = "";
       return res
         .cookie("token", token, {
-          httpOnly: true,
+          httpOnly: false,
           secure: true,
         })
         .json({
