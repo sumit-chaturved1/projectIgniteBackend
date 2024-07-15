@@ -8,14 +8,14 @@ const authenticateToken = async (req, res, next) => {
     const token = req.cookies?.token || authToken;
     // console.log("cookies: ", req.cookies?.token);
     if (token == null)
-      return res.json({ success: false, message: "Invalid Token" });
+      return res.json({ success: false, message: "Invalid Tokenf1" });
 
     const payload = jwt.verify(token, process.env.ACCESS_WEB_TOKEN);
     const user = await UserModel.findOne({ username: payload.username }).select(
       "-password"
     );
     if (!user) {
-      return res.json({ success: false, message: "Invalid Token" });
+      return res.json({ success: false, message: "Invalid Tokenf2" });
     }
     req.user = user;
     req.authenticated = { success: true, payload: payload };
