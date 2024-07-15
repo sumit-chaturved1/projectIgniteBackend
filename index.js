@@ -5,12 +5,7 @@ const app = express();
 app.use(cookieParser());
 const cors = require("cors");
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://projectignitebackend-2.onrender.com",
-    credentials: true,
-  })
-);
+app.use(cors());
 
 const mongoose = require("mongoose");
 const { router } = require("./routes/user/user");
