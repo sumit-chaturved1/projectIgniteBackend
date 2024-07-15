@@ -10,7 +10,7 @@ const authenticateToken = async (req, res, next) => {
     if (token == null)
       return res.json({
         success: false,
-        message: "Invalid Tokenf1",
+        message: "Invalid Tokenf2",
       });
 
     const payload = jwt.verify(token, process.env.ACCESS_WEB_TOKEN);

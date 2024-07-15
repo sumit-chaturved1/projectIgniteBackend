@@ -44,8 +44,9 @@ const loginUser = async (req, res) => {
       savedUser.password = "";
       return res
         .cookie("token", token, {
-          httpOnly: false,
-          secure: true,
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "Lax",
         })
         .json({
           success: true,
