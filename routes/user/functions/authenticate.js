@@ -9,7 +9,7 @@ const authenticateToken = async (req, res, next) => {
     if (token == null)
       return res.json({
         success: false,
-        message: "Invalid Tokenf",
+        message: "Invalid Tokensumit",
       });
 
     const payload = jwt.verify(token, process.env.ACCESS_WEB_TOKEN);
