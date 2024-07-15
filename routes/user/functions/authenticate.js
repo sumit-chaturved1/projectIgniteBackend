@@ -10,7 +10,7 @@ const authenticateToken = async (req, res, next) => {
     if (token == null)
       return res.json({
         success: false,
-        message: "Invalid Token",
+        message: "Invalid Tokenf1",
         token: req.cookies?.token,
       });
 
@@ -19,7 +19,7 @@ const authenticateToken = async (req, res, next) => {
       "-password"
     );
     if (!user) {
-      return res.json({ success: false, message: "Invalid Token" });
+      return res.json({ success: false, message: "Invalid Tokenf2" });
     }
     req.user = user;
     req.authenticated = { success: true, payload: payload };
