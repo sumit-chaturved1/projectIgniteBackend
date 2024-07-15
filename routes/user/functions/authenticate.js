@@ -5,13 +5,12 @@ const authenticateToken = async (req, res, next) => {
     console.log("problem is here");
     const authHeader = req.headers["authorization"]; //  Using Cookies for token
     const authToken = authHeader && authHeader.split(" ")[1];
-    const token = req.cookies?.token || authToken;
+    const token = req.cookies?.token;
     console.log("cookies: ", req.cookies?.token);
     if (token == null)
       return res.json({
         success: false,
         message: "Invalid Tokenf1",
-        token: req.cookies?.token,
       });
 
     const payload = jwt.verify(token, process.env.ACCESS_WEB_TOKEN);
